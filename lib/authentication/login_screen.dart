@@ -3,6 +3,7 @@ import 'package:cabuserapp/global/global.dart';
 import 'package:cabuserapp/splashSceen/splash_screen.dart';
 import 'package:cabuserapp/widgets/progress_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -51,10 +52,21 @@ class _LoginScreenState extends State<LoginScreen> {
         .user;
 
     if (firebaseUser != null) {
-      currentUser = firebaseUser;
-      Fluttertoast.showToast(msg: "Login Successfully");
-      Navigator.push(
-          context, MaterialPageRoute(builder: ((c) => MySplashScreen())));
+      DatabaseReference dref = FirebaseDatabase.instance.ref().child("users");
+      dref.child(firebaseUser.uid).once().then((value) {
+        final snap = value.snapshot;
+        if (snap.value != null) {
+          currentUser = firebaseUser;
+          Fluttertoast.showToast(msg: "Login Successfully");
+          Navigator.push(
+              context, MaterialPageRoute(builder: ((c) => MySplashScreen())));
+        } else {
+          fauth.signOut();
+          Fluttertoast.showToast(msg: "No records found");
+          Navigator.push(
+              context, MaterialPageRoute(builder: ((c) => MySplashScreen())));
+        }
+      });
     } else {
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
