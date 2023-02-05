@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "191584548678",
+    "firebase_url": "https://uber-ola-and-indriver-90f69-default-rtdb.firebaseio.com",
+    "project_id": "uber-ola-and-indriver-90f69",
+    "storage_bucket": "uber-ola-and-indriver-90f69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191584548678:android:7842e6323f9cca3bbbd747",
+        "android_client_info": {
+          "package_name": "com.example.cabapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191584548678-l2tpdum81sklh6cqkgkj0b3uno5gtrpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMv33J_Wnqh00uJHYk58b6614ScnZC4Oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191584548678-l2tpdum81sklh6cqkgkj0b3uno5gtrpo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "191584548678-ppnphnh8mrsfqqitgebkrison0k2gbbv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cabapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191584548678:android:7f69f002d4e4512bbbd747",
+        "android_client_info": {
+          "package_name": "com.example.cabuserapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191584548678-l2tpdum81sklh6cqkgkj0b3uno5gtrpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMv33J_Wnqh00uJHYk58b6614ScnZC4Oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191584548678-l2tpdum81sklh6cqkgkj0b3uno5gtrpo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "191584548678-ppnphnh8mrsfqqitgebkrison0k2gbbv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cabapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
