@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cabuserapp/global/global.dart';
 import 'package:flutter/material.dart';
 
+import '../assistance/assistance_method.dart';
 import '../authentication/login_screen.dart';
 import '../mainscreens/main_screen.dart';
 
@@ -15,6 +16,7 @@ class MySplashScreen extends StatefulWidget {
 
 class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
+    fauth.currentUser != null ? AssistanceMethod.getUserData() : null;
     Timer(const Duration(seconds: 3), () async {
       if (fauth.currentUser != null) {
         currentUser = fauth.currentUser;

@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:cabuserapp/assistance/assistance_method.dart';
+import 'package:cabuserapp/global/global.dart';
+import 'package:cabuserapp/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -19,6 +22,8 @@ class _MainScreenState extends State<MainScreen> {
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
   );
+
+  final GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
 
   blackTheme() {
     newgooglemapController!.setMapStyle('''
@@ -187,21 +192,56 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: sKey,
+        drawer: Container(
+          width: 265,
+          child: Theme(
+            data: Theme.of(context).copyWith(canvasColor: Colors.black),
+            child: MyDrawer(
+              name: currentUserModelInfo!.name,
+              email: currentUserModelInfo!.email,
+            ),
+          ),
+        ),
         body: Stack(
-      children: [
-        GoogleMap(
-          initialCameraPosition: _kGooglePlex,
-          mapType: MapType.normal,
-          myLocationEnabled: true,
-          onMapCreated: (GoogleMapController controller) {
-            _controller.complete(controller);
-            newgooglemapController = controller;
-            blackTheme();
-          },
-        )
-      ],
-    ));
+          children: [
+            GoogleMap(
+              initialCameraPosition: _kGooglePlex,
+              mapType: MapType.normal,
+              myLocationEnabled: true,
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+                newgooglemapController = controller;
+                blackTheme();
+              },
+            ),
+
+            //custom hamburger menu
+            Positioned(
+              top: 34,
+              left: 22,
+              child: GestureDetector(
+                onTap: () {
+                  sKey.currentState!.openDrawer();
+                },
+                child: CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  child: Icon(
+                    Icons.menu,
+                    color: Colors.black54,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ));
   }
 }
